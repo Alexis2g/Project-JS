@@ -1,14 +1,30 @@
 let http = require('http')
 
+let fs = require('fs')
+
 let serveur = http.createServer()
 
 serveur.on('request', (request, reponse) => {
 
-    reponse.writeHead(200, {
-        'Content-type': 'text/html; charset=utf-8'
+    fs.readFile('index.html', 'utf-8', (err, data) => {
+
+        if (err) {
+
+            Response.writeHead(404)
+
+            Response.end('existe pas')
+
+        } else
+
+        reponse.writeHead(200, {
+            'Content-type': 'text/html; charset=utf-8'
+
+    })
+
+
     })
     
-    reponse.end('salut ça va ?') 
+    reponse.end(data) 
 
 })
 
