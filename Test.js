@@ -6,7 +6,7 @@ let serveur = http.createServer()
 
 serveur.on('request', (request, reponse) => {
 
-    fs.readFile('index.html', 'utf-8', (err, data) => {
+    fs.readFile('index.html', 'utf-8', function(err, data) {
 
         if (err) {
 
